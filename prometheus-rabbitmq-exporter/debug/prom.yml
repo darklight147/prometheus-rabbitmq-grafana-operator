@@ -1,0 +1,101 @@
+apiVersion: monitoring.coreos.com/v1
+kind: Prometheus
+metadata:
+  annotations:
+    meta.helm.sh/release-name: kube-stack
+    meta.helm.sh/release-namespace: promtheus-system
+  creationTimestamp: "2023-11-19T13:21:38Z"
+  generation: 1
+  labels:
+    app: kube-prometheus-stack-prometheus
+    app.kubernetes.io/instance: kube-stack
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/part-of: kube-prometheus-stack
+    app.kubernetes.io/version: 54.1.0
+    chart: kube-prometheus-stack-54.1.0
+    heritage: Helm
+    release: kube-stack
+  name: kube-stack-kube-prometheus-prometheus
+  namespace: promtheus-system
+  resourceVersion: "17611"
+  uid: 773bfaa1-70f1-4157-929e-81166491f1dc
+spec:
+  alerting:
+    alertmanagers:
+    - apiVersion: v2
+      name: kube-stack-kube-prometheus-alertmanager
+      namespace: promtheus-system
+      pathPrefix: /
+      port: http-web
+  enableAdminAPI: false
+  evaluationInterval: 30s
+  externalUrl: http://kube-stack-kube-prometheus-prometheus.promtheus-system:9090
+  hostNetwork: false
+  image: quay.io/prometheus/prometheus:v2.47.2
+  listenLocal: false
+  logFormat: logfmt
+  logLevel: info
+  paused: false
+  podMonitorNamespaceSelector: {}
+  podMonitorSelector:
+    matchLabels:
+      release: kube-stack
+  portName: http-web
+  probeNamespaceSelector: {}
+  probeSelector:
+    matchLabels:
+      release: kube-stack
+  replicas: 1
+  retention: 10d
+  routePrefix: /
+  ruleNamespaceSelector: {}
+  ruleSelector:
+    matchLabels:
+      release: kube-stack
+  scrapeConfigNamespaceSelector: {}
+  scrapeConfigSelector:
+    matchLabels:
+      release: kube-stack
+  scrapeInterval: 30s
+  securityContext:
+    fsGroup: 2000
+    runAsGroup: 2000
+    runAsNonRoot: true
+    runAsUser: 1000
+    seccompProfile:
+      type: RuntimeDefault
+  serviceAccountName: kube-stack-kube-prometheus-prometheus
+  serviceMonitorNamespaceSelector: {}
+  serviceMonitorSelector:
+    matchLabels:
+      release: kube-stack
+  shards: 1
+  tsdb:
+    outOfOrderTimeWindow: 0s
+  version: v2.47.2
+  walCompression: true
+status:
+  availableReplicas: 1
+  conditions:
+  - lastTransitionTime: "2023-11-19T15:14:36Z"
+    message: ""
+    observedGeneration: 1
+    reason: ""
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-11-19T15:14:36Z"
+    message: ""
+    observedGeneration: 1
+    reason: ""
+    status: "True"
+    type: Reconciled
+  paused: false
+  replicas: 1
+  shardStatuses:
+  - availableReplicas: 1
+    replicas: 1
+    shardID: "0"
+    unavailableReplicas: 0
+    updatedReplicas: 1
+  unavailableReplicas: 0
+  updatedReplicas: 1

@@ -1,0 +1,13 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+  name: example-rabbit
+  namespace: rabbitmq-system
+  annotations:
+    rabbitmq.com/topology-allowed-namespaces: "myapp"
+spec:
+  replicas: 1
+  rabbitmq:
+    additionalPlugins:
+      - rabbitmq_management
+      - rabbitmq_prometheus

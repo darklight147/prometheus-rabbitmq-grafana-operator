@@ -1,0 +1,10 @@
+apiVersion: rabbitmq.com/v1beta1
+kind: Queue
+metadata:
+  name: test # name of this custom resource; does not have to the same as the actual queue name
+  namespace: myapp
+spec:
+  name: test-queue # name of the queue
+  rabbitmqClusterReference:
+    name: example-rabbit
+    namespace: rabbitmq-system

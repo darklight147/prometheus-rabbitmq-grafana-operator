@@ -1,0 +1,26 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  annotations:
+    meta.helm.sh/release-name: rabbitmq-exporter
+    meta.helm.sh/release-namespace: promtheus-system
+  creationTimestamp: "2023-11-19T14:45:06Z"
+  generation: 3
+  labels:
+    app: prometheus-rabbitmq-exporter
+    app.kubernetes.io/managed-by: Helm
+    chart: prometheus-rabbitmq-exporter-1.9.0
+    heritage: Helm
+    release: kube-stack
+  name: rabbitmq-exporter-prometheus-rabbitmq-exporter
+  namespace: promtheus-system
+  resourceVersion: "19633"
+  uid: 5522e5cf-3012-42e5-ad6b-83008855148e
+spec:
+  endpoints:
+  - interval: 15s
+    port: rabbitmq-exporter
+  selector:
+    matchLabels:
+      app: prometheus-rabbitmq-exporter
+      release: rabbitmq-exporter
